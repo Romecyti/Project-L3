@@ -10,9 +10,9 @@ Cependant, dans la volonté de sauvegarder ce travail pour l'historique personne
 
 Réaliser par BEHUET Timothée (https://github.com/lmte) et MARCHAND Célestin (https://github.com/Romecyti).
 
-Cette application a été réaliser dans le cadre d'un projet universitaire.
+Cette application a été réaliser dans le cadre d'un projet universitaire, à l'université d'Angers.
 
-
+Tout droit reservés au auteurs des musique.
 
 ## ----[ Installation ]----
 
