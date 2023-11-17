@@ -1,5 +1,16 @@
-Cette application a été réaliser dans le cadre d'un projet universitaire
+$ Warning 
 
+Le code ayant été mis sur Git 2 ans après son écriture, et n'ayant pas été maintenu ni regardé depuis son écriture, 
+    les informations d'installation ne sont certainement plus valide.
+
+Cependant, dans la volonté de sauvegarder ce travail pour l'historique personnel de mon collègue et moi-même, le dépôt GIT sera conservé comme tel.
+
+
+
+
+Réaliser par BEHUET Timothée (https://github.com/lmte) et MARCHAND Célestin (https://github.com/Romecyti).
+
+Cette application a été réaliser dans le cadre d'un projet universitaire.
 
 
 
