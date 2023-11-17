@@ -1,0 +1,1076 @@
+#include "settings_controller.hh"
+
+
+#include <iostream>
+
+void SettingsController::createSettingsFile()
+{
+    setValue("SettingsFileDefined", true);
+
+    //default settings
+    beginGroup("Default");
+    {
+        beginGroup("KeyBindFor1Player");
+        {
+            beginGroup("Game");
+            {
+                setValue("Reserve",Qt::Key::Key_Space);
+                setValue("Pause",Qt::Key::Key_P);
+            }
+            endGroup();
+            beginGroup("Camera");
+            {
+                beginGroup("Rotation");
+                {
+                    setValue("Right",Qt::Key::Key_Right);
+                    setValue("Left",Qt::Key::Key_Left);
+                    setValue("Forward",Qt::Key::Key_Up);
+                    setValue("Backward",Qt::Key::Key_Down);
+                }
+                endGroup();
+                beginGroup("Sensibility");
+                {
+                    setValue("Right-Left",5);
+                    setValue("For-BackWard","Classic");
+                }
+                endGroup();
+            }
+            endGroup();
+            beginGroup("Piece");
+            {
+                beginGroup("Movement");
+                {
+                    setValue("Right",Qt::Key::Key_6);
+                    setValue("Left",Qt::Key::Key_4);
+                    setValue("Forward",Qt::Key::Key_2);
+                    setValue("Backward",Qt::Key::Key_8);
+                    setValue("Down",Qt::Key::Key_5);
+                }
+                endGroup();
+                beginGroup("Rotation");
+                {
+                    setValue("Right",Qt::Key::Key_D);
+                    setValue("Left",Qt::Key::Key_Q);
+                    setValue("Forward",Qt::Key::Key_S);
+                    setValue("Backward",Qt::Key::Key_Z);
+                    setValue("TippingRight",Qt::Key::Key_E);
+                    setValue("TippingLeft",Qt::Key::Key_A);
+                }
+                endGroup();
+            }
+            endGroup();
+        }
+        endGroup();
+
+        beginGroup("KeyBindFor2Player");
+        {
+            setValue("Pause",Qt::Key::Key_P);
+            beginGroup("Player1");
+            {
+                setValue("Reserve",Qt::Key::Key_Space);
+                beginGroup("Camera");
+                {
+                    beginGroup("Rotation");
+                    {
+                        setValue("Right",Qt::Key::Key_J);
+                        setValue("Left",Qt::Key::Key_G);
+                        setValue("Forward",Qt::Key::Key_Y);
+                        setValue("Backward",Qt::Key::Key_H);
+                    }
+                    endGroup();
+                    beginGroup("Sensibility");
+                    {
+                        setValue("Right-Left",5);
+                        setValue("For-BackWard","Classic");
+                    }
+                    endGroup();
+                    beginGroup("Piece");
+                    {
+                        beginGroup("Movement");
+                        {
+                            setValue("Right",Qt::Key::Key_D);
+                            setValue("Left",Qt::Key::Key_Q);
+                            setValue("Forward",Qt::Key::Key_Z);
+                            setValue("Backward",Qt::Key::Key_X);
+                            setValue("Down",Qt::Key::Key_S);
+                        }
+                        endGroup();
+                        beginGroup("Rotation");
+                        {
+                            setValue("Right",Qt::Key::Key_A);
+                            setValue("Forward",Qt::Key::Key_E);
+                            setValue("TippingRight",Qt::Key::Key_C);
+                        }
+                        endGroup();
+                    }
+                    endGroup();
+                }
+                endGroup();
+            }
+            endGroup();
+            beginGroup("Player2");
+            {
+                setValue("Reserve",Qt::Key::Key_1);
+                beginGroup("Camera");
+                {
+                    beginGroup("Rotation");
+                    {
+                        setValue("Right",Qt::Key::Key_Right);
+                        setValue("Left",Qt::Key::Key_Left);
+                        setValue("Forward",Qt::Key::Key_Up);
+                        setValue("Backward",Qt::Key::Key_Down);
+                    }
+                    endGroup();
+                    beginGroup("Sensibility");
+                    {
+                        setValue("Right-Left",5);
+                        setValue("For-BackWard","Classic");
+                    }
+                    endGroup();
+                    beginGroup("Piece");
+                    {
+                        beginGroup("Movement");
+                        {
+                            setValue("Right",Qt::Key::Key_6);
+                            setValue("Left",Qt::Key::Key_4);
+                            setValue("Forward",Qt::Key::Key_2);
+                            setValue("Backward",Qt::Key::Key_8);
+                            setValue("Down",Qt::Key::Key_5);
+                        }
+                        endGroup();
+                        beginGroup("Rotation");
+                        {
+                            setValue("Right",Qt::Key::Key_0);
+                            setValue("Forward",Qt::Key::Key_7);
+                            setValue("TippingRight",Qt::Key::Key_9);
+                        }
+                        endGroup();
+                    }
+                    endGroup();
+                }
+                endGroup();
+            }
+            endGroup();
+        }
+        endGroup();
+
+        beginGroup("Audio");{
+            setValue("Music_Volume",100);
+        }
+        endGroup();
+    }
+    endGroup();
+
+    //user settings
+    beginGroup("User");
+    {
+        beginGroup("KeyBindFor1Player");
+        {
+            beginGroup("Game");
+            {
+                setValue("Reserve",Qt::Key::Key_Space);
+                setValue("Pause",Qt::Key::Key_P);
+            }
+            endGroup();
+            beginGroup("Camera");
+            {
+                beginGroup("Rotation");
+                {
+                    setValue("Right",Qt::Key::Key_Right);
+                    setValue("Left",Qt::Key::Key_Left);
+                    setValue("Forward",Qt::Key::Key_Up);
+                    setValue("Backward",Qt::Key::Key_Down);
+                }
+                endGroup();
+                beginGroup("Sensibility");
+                {
+                    setValue("Right-Left",5);
+                    setValue("For-BackWard","Classic");
+                }
+                endGroup();
+            }
+            endGroup();
+            beginGroup("Piece");
+            {
+                beginGroup("Movement");
+                {
+                    setValue("Right",Qt::Key::Key_6);
+                    setValue("Left",Qt::Key::Key_4);
+                    setValue("Forward",Qt::Key::Key_2);
+                    setValue("Backward",Qt::Key::Key_8);
+                    setValue("Down",Qt::Key::Key_5);
+                }
+                endGroup();
+                beginGroup("Rotation");
+                {
+                    setValue("Right",Qt::Key::Key_D);
+                    setValue("Left",Qt::Key::Key_Q);
+                    setValue("Forward",Qt::Key::Key_S);
+                    setValue("Backward",Qt::Key::Key_Z);
+                    setValue("TippingRight",Qt::Key::Key_E);
+                    setValue("TippingLeft",Qt::Key::Key_A);
+                }
+                endGroup();
+            }
+            endGroup();
+        }
+        endGroup();
+
+        beginGroup("KeyBindFor2Player");
+        {
+            setValue("Pause",Qt::Key::Key_P);
+            beginGroup("Player1");
+            {
+                setValue("Reserve",Qt::Key::Key_Space);
+                beginGroup("Camera");
+                {
+                    beginGroup("Rotation");
+                    {
+                        setValue("Right",Qt::Key::Key_J);
+                        setValue("Left",Qt::Key::Key_G);
+                        setValue("Forward",Qt::Key::Key_Y);
+                        setValue("Backward",Qt::Key::Key_H);
+                    }
+                    endGroup();
+                    beginGroup("Sensibility");
+                    {
+                        setValue("Right-Left",5);
+                        setValue("For-BackWard","Classic");
+                    }
+                    endGroup();
+                    beginGroup("Piece");
+                    {
+                        beginGroup("Movement");
+                        {
+                            setValue("Right",Qt::Key::Key_D);
+                            setValue("Left",Qt::Key::Key_Q);
+                            setValue("Forward",Qt::Key::Key_X);
+                            setValue("Backward",Qt::Key::Key_Z);
+                            setValue("Down",Qt::Key::Key_S);
+                        }
+                        endGroup();
+                        beginGroup("Rotation");
+                        {
+                            setValue("Right",Qt::Key::Key_A);
+                            setValue("Forward",Qt::Key::Key_E);
+                            setValue("TippingRight",Qt::Key::Key_C);
+                        }
+                        endGroup();
+                    }
+                    endGroup();
+                }
+                endGroup();
+            }
+            endGroup();
+            beginGroup("Player2");
+            {
+                setValue("Reserve",Qt::Key::Key_1);
+                beginGroup("Camera");
+                {
+                    beginGroup("Rotation");
+                    {
+                        setValue("Right",Qt::Key::Key_Right);
+                        setValue("Left",Qt::Key::Key_Left);
+                        setValue("Forward",Qt::Key::Key_Up);
+                        setValue("Backward",Qt::Key::Key_Down);
+                    }
+                    endGroup();
+                    beginGroup("Sensibility");
+                    {
+                        setValue("Right-Left",5);
+                        setValue("For-BackWard","Classic");
+                    }
+                    endGroup();
+                    beginGroup("Piece");
+                    {
+                        beginGroup("Movement");
+                        {
+                            setValue("Right",Qt::Key::Key_6);
+                            setValue("Left",Qt::Key::Key_4);
+                            setValue("Forward",Qt::Key::Key_2);
+                            setValue("Backward",Qt::Key::Key_8);
+                            setValue("Down",Qt::Key::Key_5);
+                        }
+                        endGroup();
+                        beginGroup("Rotation");
+                        {
+                            setValue("Right",Qt::Key::Key_0);
+                            setValue("Forward",Qt::Key::Key_7);
+                            setValue("TippingRight",Qt::Key::Key_9);
+                        }
+                        endGroup();
+                    }
+                    endGroup();
+                }
+                endGroup();
+            }
+            endGroup();
+        }
+        endGroup();
+
+        beginGroup("Audio");{
+            setValue("Music_Volume",100);
+        }
+        endGroup();
+    }
+    endGroup();
+
+}
+
+void SettingsController::modifSettingsFile()
+{
+    setValue("SettingsFileDefined", true);
+
+    //default settings
+    beginGroup("Default");
+    {
+        beginGroup("KeyBindFor1Player");
+        {
+            beginGroup("Game");
+            {
+                setValue("Reserve",_DefaultSettings.getGameKeyOf(GameAction::Reserve));
+                setValue("Pause",_DefaultSettings.getGameKeyOf(GameAction::Pause));
+            }
+            endGroup();
+            beginGroup("Camera");
+            {
+                beginGroup("Rotation");
+                {
+                    setValue("Right",_DefaultSettings.getCameraRotationKeyOf(CameraRotation::Right));
+                    setValue("Left",_DefaultSettings.getCameraRotationKeyOf(CameraRotation::Left));
+                    setValue("Forward",_DefaultSettings.getCameraRotationKeyOf(CameraRotation::Forward));
+                    setValue("Backward",_DefaultSettings.getCameraRotationKeyOf(CameraRotation::Backward));
+                }
+                endGroup();
+                beginGroup("Sensibility");
+                {
+                    setValue("Right-Left",_DefaultSettings.getCameraRightAndLeftSensitivity());
+                    if(_DefaultSettings.getCameraForAndBackWardSensitivity() == ForAndBackWardCameraSens::classic){
+                        setValue("For-BackWard","Classic");
+                    }
+                    else {
+                        setValue("For-BackWard","Master");
+                    }
+                }
+                endGroup();
+            }
+            endGroup();
+            beginGroup("Piece");
+            {
+                beginGroup("Movement");
+                {
+                    setValue("Right",_DefaultSettings.getPieceMovementKeyOf(PieceMovement::Right));
+                    setValue("Left",_DefaultSettings.getPieceMovementKeyOf(PieceMovement::Left));
+                    setValue("Forward",_DefaultSettings.getPieceMovementKeyOf(PieceMovement::Forward));
+                    setValue("Backward",_DefaultSettings.getPieceMovementKeyOf(PieceMovement::Backward));
+                    setValue("Down",_DefaultSettings.getPieceMovementKeyOf(PieceMovement::Down));
+                }
+                endGroup();
+                beginGroup("Rotation");
+                {
+                    setValue("Right",_DefaultSettings.getPieceRotationKeyOf(PieceRotation::Right));
+                    setValue("Left",_DefaultSettings.getPieceRotationKeyOf(PieceRotation::Left));
+                    setValue("Forward",_DefaultSettings.getPieceRotationKeyOf(PieceRotation::Forward));
+                    setValue("Backward",_DefaultSettings.getPieceRotationKeyOf(PieceRotation::Backward));
+                    setValue("TippingRight",_DefaultSettings.getPieceRotationKeyOf(PieceRotation::TippingRight));
+                    setValue("TippingLeft",_DefaultSettings.getPieceRotationKeyOf(PieceRotation::TippingLeft));
+                }
+                endGroup();
+            }
+            endGroup();
+        }
+        endGroup();
+
+        beginGroup("KeyBindFor2Player");
+        {
+            setValue("Pause",_DefaultSettings.get2PlayerPauseGameKey());
+            beginGroup("Player1");
+            {
+                setValue("Reserve",_DefaultSettings.get2PlayerReserveGameKeyForPlayer(Player::P1));
+                beginGroup("Camera");
+                {
+                    beginGroup("Rotation");
+                    {
+                        setValue("Right",_DefaultSettings.get2PlayerCameraRotationKeyBindOfForPlayer(CameraRotation::Right,Player::P1));
+                        setValue("Left",_DefaultSettings.get2PlayerCameraRotationKeyBindOfForPlayer(CameraRotation::Left,Player::P1));
+                        setValue("Forward",_DefaultSettings.get2PlayerCameraRotationKeyBindOfForPlayer(CameraRotation::Forward,Player::P1));
+                        setValue("Backward",_DefaultSettings.get2PlayerCameraRotationKeyBindOfForPlayer(CameraRotation::Backward,Player::P1));
+                    }
+                    endGroup();
+                    beginGroup("Sensibility");
+                    {
+                        setValue("Right-Left",_DefaultSettings.get2PlayerCameraRightAndLeftSensitivityForPlayer(Player::P1));
+                        if(_DefaultSettings.get2PlayerCameraForAndBackWardSensitivityForPlayer(Player::P1) == ForAndBackWardCameraSens::Master){
+                            setValue("For-BackWard","Master");
+                        }
+                        else {
+                            setValue("For-BackWard","Classic");
+                        }
+                    }
+                    endGroup();
+                    beginGroup("Piece");
+                    {
+                        beginGroup("Movement");
+                        {
+                            setValue("Right",_DefaultSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Right,Player::P1));
+                            setValue("Left",_DefaultSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Left,Player::P1));
+                            setValue("Forward",_DefaultSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Forward,Player::P1));
+                            setValue("Backward",_DefaultSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Backward,Player::P1));
+                            setValue("Down",_DefaultSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Down,Player::P1));
+                        }
+                        endGroup();
+                        beginGroup("Rotation");
+                        {
+                            setValue("Right",_DefaultSettings.get2PlayerPieceRotationKeyBindOfForPlayer(PieceRotation2Player::Right,Player::P1));
+                            setValue("Forward",_DefaultSettings.get2PlayerPieceRotationKeyBindOfForPlayer(PieceRotation2Player::Forward,Player::P1));
+                            setValue("TippingRight",_DefaultSettings.get2PlayerPieceRotationKeyBindOfForPlayer(PieceRotation2Player::TippingRight,Player::P1));
+                        }
+                        endGroup();
+                    }
+                    endGroup();
+                }
+                endGroup();
+            }
+            endGroup();
+            beginGroup("Player2");
+            {
+                setValue("Reserve",_DefaultSettings.get2PlayerReserveGameKeyForPlayer(Player::P2));
+                beginGroup("Camera");
+                {
+                    beginGroup("Rotation");
+                    {
+                        setValue("Right",_DefaultSettings.get2PlayerCameraRotationKeyBindOfForPlayer(CameraRotation::Right,Player::P2));
+                        setValue("Left",_DefaultSettings.get2PlayerCameraRotationKeyBindOfForPlayer(CameraRotation::Left,Player::P2));
+                        setValue("Forward",_DefaultSettings.get2PlayerCameraRotationKeyBindOfForPlayer(CameraRotation::Forward,Player::P2));
+                        setValue("Backward",_DefaultSettings.get2PlayerCameraRotationKeyBindOfForPlayer(CameraRotation::Backward,Player::P2));
+                    }
+                    endGroup();
+                    beginGroup("Sensibility");
+                    {
+                        setValue("Right-Left",_DefaultSettings.get2PlayerCameraRightAndLeftSensitivityForPlayer(Player::P2));
+                        if(_DefaultSettings.get2PlayerCameraForAndBackWardSensitivityForPlayer(Player::P2) == ForAndBackWardCameraSens::Master){
+                            setValue("For-BackWard","Master");
+                        }
+                        else {
+                            setValue("For-BackWard","Classic");
+                        }
+                    }
+                    endGroup();
+                    beginGroup("Piece");
+                    {
+                        beginGroup("Movement");
+                        {
+                            setValue("Right",_DefaultSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Right,Player::P2));
+                            setValue("Left",_DefaultSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Left,Player::P2));
+                            setValue("Forward",_DefaultSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Forward,Player::P2));
+                            setValue("Backward",_DefaultSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Backward,Player::P2));
+                            setValue("Down",_DefaultSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Down,Player::P2));
+                        }
+                        endGroup();
+                        beginGroup("Rotation");
+                        {
+                            setValue("Right",_DefaultSettings.get2PlayerPieceRotationKeyBindOfForPlayer(PieceRotation2Player::Right,Player::P2));
+                            setValue("Forward",_DefaultSettings.get2PlayerPieceRotationKeyBindOfForPlayer(PieceRotation2Player::Forward,Player::P2));
+                            setValue("TippingRight",_DefaultSettings.get2PlayerPieceRotationKeyBindOfForPlayer(PieceRotation2Player::TippingRight,Player::P2));
+                        }
+                        endGroup();
+                    }
+                    endGroup();
+                }
+                endGroup();
+            }
+            endGroup();
+        }
+        endGroup();
+
+        beginGroup("Audio");{
+            setValue("Music_Volume",_DefaultSettings.getAudioVolumeValue());
+        }
+        endGroup();
+    }
+    endGroup();
+
+    //user settings
+    beginGroup("User");
+    {
+        beginGroup("KeyBindFor1Player");
+        {
+            beginGroup("Game");
+            {
+                setValue("Reserve",_UserSettings.getGameKeyOf(GameAction::Reserve));
+                setValue("Pause",_UserSettings.getGameKeyOf(GameAction::Pause));
+            }
+            endGroup();
+            beginGroup("Camera");
+            {
+                beginGroup("Rotation");
+                {
+                    setValue("Right",_UserSettings.getCameraRotationKeyOf(CameraRotation::Right));
+                    setValue("Left",_UserSettings.getCameraRotationKeyOf(CameraRotation::Left));
+                    setValue("Forward",_UserSettings.getCameraRotationKeyOf(CameraRotation::Forward));
+                    setValue("Backward",_UserSettings.getCameraRotationKeyOf(CameraRotation::Backward));
+                }
+                endGroup();
+                beginGroup("Sensibility");
+                {
+                    setValue("Right-Left",_UserSettings.getCameraRightAndLeftSensitivity());
+                    if(_UserSettings.getCameraForAndBackWardSensitivity() == ForAndBackWardCameraSens::classic){
+                        setValue("For-BackWard","Classic");
+                    }
+                    else {
+                        setValue("For-BackWard","Master");
+                    }
+                }
+                endGroup();
+            }
+            endGroup();
+            beginGroup("Piece");
+            {
+                beginGroup("Movement");
+                {
+                    setValue("Right",_UserSettings.getPieceMovementKeyOf(PieceMovement::Right));
+                    setValue("Left",_UserSettings.getPieceMovementKeyOf(PieceMovement::Left));
+                    setValue("Forward",_UserSettings.getPieceMovementKeyOf(PieceMovement::Forward));
+                    setValue("Backward",_UserSettings.getPieceMovementKeyOf(PieceMovement::Backward));
+                    setValue("Down",_UserSettings.getPieceMovementKeyOf(PieceMovement::Down));
+                }
+                endGroup();
+                beginGroup("Rotation");
+                {
+                    setValue("Right",_UserSettings.getPieceRotationKeyOf(PieceRotation::Right));
+                    setValue("Left",_UserSettings.getPieceRotationKeyOf(PieceRotation::Left));
+                    setValue("Forward",_UserSettings.getPieceRotationKeyOf(PieceRotation::Forward));
+                    setValue("Backward",_UserSettings.getPieceRotationKeyOf(PieceRotation::Backward));
+                    setValue("TippingRight",_UserSettings.getPieceRotationKeyOf(PieceRotation::TippingRight));
+                    setValue("TippingLeft",_UserSettings.getPieceRotationKeyOf(PieceRotation::TippingLeft));
+                }
+                endGroup();
+            }
+            endGroup();
+        }
+        endGroup();
+
+        beginGroup("KeyBindFor2Player");
+        {
+            setValue("Pause",_UserSettings.get2PlayerPauseGameKey());
+            beginGroup("Player1");
+            {
+                setValue("Reserve",_UserSettings.get2PlayerReserveGameKeyForPlayer(Player::P1));
+                beginGroup("Camera");
+                {
+                    beginGroup("Rotation");
+                    {
+                        setValue("Right",_UserSettings.get2PlayerCameraRotationKeyBindOfForPlayer(CameraRotation::Right,Player::P1));
+                        setValue("Left",_UserSettings.get2PlayerCameraRotationKeyBindOfForPlayer(CameraRotation::Left,Player::P1));
+                        setValue("Forward",_UserSettings.get2PlayerCameraRotationKeyBindOfForPlayer(CameraRotation::Forward,Player::P1));
+                        setValue("Backward",_UserSettings.get2PlayerCameraRotationKeyBindOfForPlayer(CameraRotation::Backward,Player::P1));
+                    }
+                    endGroup();
+                    beginGroup("Sensibility");
+                    {
+                        setValue("Right-Left",_UserSettings.get2PlayerCameraRightAndLeftSensitivityForPlayer(Player::P1));
+                        if(_UserSettings.get2PlayerCameraForAndBackWardSensitivityForPlayer(Player::P1) == ForAndBackWardCameraSens::Master){
+                            setValue("For-BackWard","Master");
+                        }
+                        else {
+                            setValue("For-BackWard","Classic");
+                        }
+                    }
+                    endGroup();
+                    beginGroup("Piece");
+                    {
+                        beginGroup("Movement");
+                        {
+                            setValue("Right",_UserSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Right,Player::P1));
+                            setValue("Left",_UserSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Left,Player::P1));
+                            setValue("Forward",_UserSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Forward,Player::P1));
+                            setValue("Backward",_UserSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Backward,Player::P1));
+                            setValue("Down",_UserSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Down,Player::P1));
+                        }
+                        endGroup();
+                        beginGroup("Rotation");
+                        {
+                            setValue("Right",_UserSettings.get2PlayerPieceRotationKeyBindOfForPlayer(PieceRotation2Player::Right,Player::P1));
+                            setValue("Forward",_UserSettings.get2PlayerPieceRotationKeyBindOfForPlayer(PieceRotation2Player::Forward,Player::P1));
+                            setValue("TippingRight",_UserSettings.get2PlayerPieceRotationKeyBindOfForPlayer(PieceRotation2Player::TippingRight,Player::P1));
+                        }
+                        endGroup();
+                    }
+                    endGroup();
+                }
+                endGroup();
+            }
+            endGroup();
+            beginGroup("Player2");
+            {
+                setValue("Reserve",_UserSettings.get2PlayerReserveGameKeyForPlayer(Player::P2));
+                beginGroup("Camera");
+                {
+                    beginGroup("Rotation");
+                    {
+                        setValue("Right",_UserSettings.get2PlayerCameraRotationKeyBindOfForPlayer(CameraRotation::Right,Player::P2));
+                        setValue("Left",_UserSettings.get2PlayerCameraRotationKeyBindOfForPlayer(CameraRotation::Left,Player::P2));
+                        setValue("Forward",_UserSettings.get2PlayerCameraRotationKeyBindOfForPlayer(CameraRotation::Forward,Player::P2));
+                        setValue("Backward",_UserSettings.get2PlayerCameraRotationKeyBindOfForPlayer(CameraRotation::Backward,Player::P2));
+                    }
+                    endGroup();
+                    beginGroup("Sensibility");
+                    {
+                        setValue("Right-Left",_UserSettings.get2PlayerCameraRightAndLeftSensitivityForPlayer(Player::P2));
+                        if(_UserSettings.get2PlayerCameraForAndBackWardSensitivityForPlayer(Player::P2) == ForAndBackWardCameraSens::Master){
+                            setValue("For-BackWard","Master");
+                        }
+                        else {
+                            setValue("For-BackWard","Classic");
+                        }
+                    }
+                    endGroup();
+                    beginGroup("Piece");
+                    {
+                        beginGroup("Movement");
+                        {
+                            setValue("Right",_UserSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Right,Player::P2));
+                            setValue("Left",_UserSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Left,Player::P2));
+                            setValue("Forward",_UserSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Forward,Player::P2));
+                            setValue("Backward",_UserSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Backward,Player::P2));
+                            setValue("Down",_UserSettings.get2PlayerPieceMovementKeyBindOfForPlayer(PieceMovement::Down,Player::P2));
+                        }
+                        endGroup();
+                        beginGroup("Rotation");
+                        {
+                            setValue("Right",_UserSettings.get2PlayerPieceRotationKeyBindOfForPlayer(PieceRotation2Player::Right,Player::P2));
+                            setValue("Forward",_UserSettings.get2PlayerPieceRotationKeyBindOfForPlayer(PieceRotation2Player::Forward,Player::P2));
+                            setValue("TippingRight",_UserSettings.get2PlayerPieceRotationKeyBindOfForPlayer(PieceRotation2Player::TippingRight,Player::P2));
+                        }
+                        endGroup();
+                    }
+                    endGroup();
+                }
+                endGroup();
+            }
+            endGroup();
+        }
+        endGroup();
+
+        beginGroup("Audio");{
+            setValue("Music_Volume",_UserSettings.getAudioVolumeValue());
+        }
+        endGroup();
+    }
+    endGroup();
+
+
+}
+
+void SettingsController::loadDefaultSettings()
+{
+    beginGroup("Default");
+    {
+        beginGroup("KeyBindFor1Player");
+        {
+            beginGroup("Game");
+            {
+                _DefaultSettings.setGameKeyOf(GameAction::Reserve,static_cast<Qt::Key>(value("Reserve",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                _DefaultSettings.setGameKeyOf(GameAction::Pause,static_cast<Qt::Key>(value("Pause",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+            }
+            endGroup();
+            beginGroup("Camera");
+            {
+                beginGroup("Rotation");
+                {
+                    _DefaultSettings.setCameraRotationKeyOf(CameraRotation::Right,static_cast<Qt::Key>(value("Right",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _DefaultSettings.setCameraRotationKeyOf(CameraRotation::Left,static_cast<Qt::Key>(value("Left",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _DefaultSettings.setCameraRotationKeyOf(CameraRotation::Forward,static_cast<Qt::Key>(value("Forward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _DefaultSettings.setCameraRotationKeyOf(CameraRotation::Backward,static_cast<Qt::Key>(value("Backward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                }
+                endGroup();
+                beginGroup("Sensibility");
+                {
+                    _DefaultSettings.setCameraRightAndLeftSensitivity(value("Right-Left",5).toInt());
+                    _DefaultSettings.setCameraForAndBackWardSensitivity((value("For-BackWard","Classic") == "Classic")?ForAndBackWardCameraSens::classic : ForAndBackWardCameraSens::Master);
+                }
+                endGroup();
+            }
+            endGroup();
+            beginGroup("Piece");
+            {
+                beginGroup("Movement");
+                {
+                    _DefaultSettings.setPieceMovementKeyOf(PieceMovement::Right,static_cast<Qt::Key>(value("Right",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _DefaultSettings.setPieceMovementKeyOf(PieceMovement::Left,static_cast<Qt::Key>(value("Left",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _DefaultSettings.setPieceMovementKeyOf(PieceMovement::Forward,static_cast<Qt::Key>(value("Forward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _DefaultSettings.setPieceMovementKeyOf(PieceMovement::Backward,static_cast<Qt::Key>(value("Backward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _DefaultSettings.setPieceMovementKeyOf(PieceMovement::Down,static_cast<Qt::Key>(value("Down",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                }
+                endGroup();
+                beginGroup("Rotation");
+                {
+                    _DefaultSettings.setPieceRotationKeyOf(PieceRotation::Right,static_cast<Qt::Key>(value("Right",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _DefaultSettings.setPieceRotationKeyOf(PieceRotation::Left,static_cast<Qt::Key>(value("Left",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _DefaultSettings.setPieceRotationKeyOf(PieceRotation::Forward,static_cast<Qt::Key>(value("Forward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _DefaultSettings.setPieceRotationKeyOf(PieceRotation::Backward,static_cast<Qt::Key>(value("Backward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _DefaultSettings.setPieceRotationKeyOf(PieceRotation::TippingRight,static_cast<Qt::Key>(value("TippingRight",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _DefaultSettings.setPieceRotationKeyOf(PieceRotation::TippingLeft,static_cast<Qt::Key>(value("TippingLeft",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+
+                }
+                endGroup();
+            }
+            endGroup();
+        }
+        endGroup();
+
+        beginGroup("KeyBindFor2Player");
+        {
+            _DefaultSettings.set2PlayerPauseKey(static_cast<Qt::Key>(value("Pause",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+            beginGroup("Player1");
+            {
+                _DefaultSettings.set2PlayerReserveKeyForPlayer(static_cast<Qt::Key>(value("Reserve",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                beginGroup("Camera");
+                {
+                    beginGroup("Rotation");
+                    {
+                        _DefaultSettings.set2PlayerCameraRotationKeyOfForPlayer(CameraRotation::Right,static_cast<Qt::Key>(value("Right",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                        _DefaultSettings.set2PlayerCameraRotationKeyOfForPlayer(CameraRotation::Left,static_cast<Qt::Key>(value("Left",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                        _DefaultSettings.set2PlayerCameraRotationKeyOfForPlayer(CameraRotation::Forward,static_cast<Qt::Key>(value("Forward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                        _DefaultSettings.set2PlayerCameraRotationKeyOfForPlayer(CameraRotation::Backward,static_cast<Qt::Key>(value("Backward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                    }
+                    endGroup();
+                    beginGroup("Sensibility");
+                    {
+                        _DefaultSettings.set2PlayerCameraRightAndLeftSensitivityForPlayer(value("Right-Left",5).toInt(),Player::P1);
+                        _DefaultSettings.set2PlayerCameraForAndBackWardSensitivityForPlayer((value("For-BackWard","Classic") == "Classic")?ForAndBackWardCameraSens::classic : ForAndBackWardCameraSens::Master, Player::P1);
+                    }
+                    endGroup();
+                    beginGroup("Piece");
+                    {
+                        beginGroup("Movement");
+                        {
+                            _DefaultSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Right,static_cast<Qt::Key>(value("Right",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                            _DefaultSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Left,static_cast<Qt::Key>(value("Left",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                            _DefaultSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Forward,static_cast<Qt::Key>(value("Forward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                            _DefaultSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Backward,static_cast<Qt::Key>(value("Backward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                            _DefaultSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Down,static_cast<Qt::Key>(value("Down",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                        }
+                        endGroup();
+                        beginGroup("Rotation");
+                        {
+                            _DefaultSettings.set2PlayerPieceRotationKeyOfForPlayer(PieceRotation2Player::Right,static_cast<Qt::Key>(value("Right",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                            _DefaultSettings.set2PlayerPieceRotationKeyOfForPlayer(PieceRotation2Player::Forward,static_cast<Qt::Key>(value("Forward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                            _DefaultSettings.set2PlayerPieceRotationKeyOfForPlayer(PieceRotation2Player::TippingRight,static_cast<Qt::Key>(value("TippingRight",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                        }
+                        endGroup();
+                    }
+                    endGroup();
+                }
+                endGroup();
+
+            }
+            endGroup();
+            beginGroup("Player2");
+            {
+                _DefaultSettings.set2PlayerReserveKeyForPlayer(static_cast<Qt::Key>(value("Reserve",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                beginGroup("Camera");
+                {
+                    beginGroup("Rotation");
+                    {
+                        _DefaultSettings.set2PlayerCameraRotationKeyOfForPlayer(CameraRotation::Right,static_cast<Qt::Key>(value("Right",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                        _DefaultSettings.set2PlayerCameraRotationKeyOfForPlayer(CameraRotation::Left,static_cast<Qt::Key>(value("Left",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                        _DefaultSettings.set2PlayerCameraRotationKeyOfForPlayer(CameraRotation::Forward,static_cast<Qt::Key>(value("Forward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                        _DefaultSettings.set2PlayerCameraRotationKeyOfForPlayer(CameraRotation::Backward,static_cast<Qt::Key>(value("Backward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                    }
+                    endGroup();
+                    beginGroup("Sensibility");
+                    {
+                        _DefaultSettings.set2PlayerCameraRightAndLeftSensitivityForPlayer(value("Right-Left",5).toInt(),Player::P2);
+                        _DefaultSettings.set2PlayerCameraForAndBackWardSensitivityForPlayer((value("For-BackWard","Classic") == "Classic")?ForAndBackWardCameraSens::classic : ForAndBackWardCameraSens::Master, Player::P2);
+                    }
+                    endGroup();
+                    beginGroup("Piece");
+                    {
+                        beginGroup("Movement");
+                        {
+                            _DefaultSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Right,static_cast<Qt::Key>(value("Right",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                            _DefaultSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Left,static_cast<Qt::Key>(value("Left",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                            _DefaultSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Forward,static_cast<Qt::Key>(value("Forward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                            _DefaultSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Backward,static_cast<Qt::Key>(value("Backward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                            _DefaultSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Down,static_cast<Qt::Key>(value("Down",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                        }
+                        endGroup();
+                        beginGroup("Rotation");
+                        {
+                            _DefaultSettings.set2PlayerPieceRotationKeyOfForPlayer(PieceRotation2Player::Right,static_cast<Qt::Key>(value("Right",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                            _DefaultSettings.set2PlayerPieceRotationKeyOfForPlayer(PieceRotation2Player::Forward,static_cast<Qt::Key>(value("Forward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                            _DefaultSettings.set2PlayerPieceRotationKeyOfForPlayer(PieceRotation2Player::TippingRight,static_cast<Qt::Key>(value("TippingRight",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                        }
+                        endGroup();
+                    }
+                    endGroup();
+                }
+                endGroup();
+            }
+            endGroup();
+        }
+        endGroup();
+
+        beginGroup("Audio");{
+            _DefaultSettings.setAudioVolume(value("Music_Volume",100).toInt());
+        }
+        endGroup();
+    }
+    endGroup();
+}
+
+void SettingsController::loadUserSettings()
+{
+    beginGroup("User");
+    {
+        beginGroup("KeyBindFor1Player");
+        {
+            beginGroup("Game");
+            {
+                _UserSettings.setGameKeyOf(GameAction::Reserve,static_cast<Qt::Key>(value("Reserve",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                _UserSettings.setGameKeyOf(GameAction::Pause,static_cast<Qt::Key>(value("Pause",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+            }
+            endGroup();
+            beginGroup("Camera");
+            {
+                beginGroup("Rotation");
+                {
+                    _UserSettings.setCameraRotationKeyOf(CameraRotation::Right,static_cast<Qt::Key>(value("Right",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _UserSettings.setCameraRotationKeyOf(CameraRotation::Left,static_cast<Qt::Key>(value("Left",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _UserSettings.setCameraRotationKeyOf(CameraRotation::Forward,static_cast<Qt::Key>(value("Forward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _UserSettings.setCameraRotationKeyOf(CameraRotation::Backward,static_cast<Qt::Key>(value("Backward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                }
+                endGroup();
+                beginGroup("Sensibility");
+                {
+                    _UserSettings.setCameraRightAndLeftSensitivity(value("Right-Left",5).toInt());
+                    _UserSettings.setCameraForAndBackWardSensitivity((value("For-BackWard","Classic") == "Classic")?ForAndBackWardCameraSens::classic : ForAndBackWardCameraSens::Master);
+                }
+                endGroup();
+            }
+            endGroup();
+            beginGroup("Piece");
+            {
+                beginGroup("Movement");
+                {
+                    _UserSettings.setPieceMovementKeyOf(PieceMovement::Right,static_cast<Qt::Key>(value("Right",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _UserSettings.setPieceMovementKeyOf(PieceMovement::Left,static_cast<Qt::Key>(value("Left",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _UserSettings.setPieceMovementKeyOf(PieceMovement::Forward,static_cast<Qt::Key>(value("Forward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _UserSettings.setPieceMovementKeyOf(PieceMovement::Backward,static_cast<Qt::Key>(value("Backward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _UserSettings.setPieceMovementKeyOf(PieceMovement::Down,static_cast<Qt::Key>(value("Down",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                }
+                endGroup();
+                beginGroup("Rotation");
+                {
+                    _UserSettings.setPieceRotationKeyOf(PieceRotation::Right,static_cast<Qt::Key>(value("Right",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _UserSettings.setPieceRotationKeyOf(PieceRotation::Left,static_cast<Qt::Key>(value("Left",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _UserSettings.setPieceRotationKeyOf(PieceRotation::Forward,static_cast<Qt::Key>(value("Forward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _UserSettings.setPieceRotationKeyOf(PieceRotation::Backward,static_cast<Qt::Key>(value("Backward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _UserSettings.setPieceRotationKeyOf(PieceRotation::TippingRight,static_cast<Qt::Key>(value("TippingRight",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+                    _UserSettings.setPieceRotationKeyOf(PieceRotation::TippingLeft,static_cast<Qt::Key>(value("TippingLeft",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+
+                }
+                endGroup();
+            }
+            endGroup();
+        }
+        endGroup();
+
+        beginGroup("KeyBindFor2Player");
+        {
+            _UserSettings.set2PlayerPauseKey(static_cast<Qt::Key>(value("Pause",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()));
+            beginGroup("Player1");
+            {
+                _UserSettings.set2PlayerReserveKeyForPlayer(static_cast<Qt::Key>(value("Reserve",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                beginGroup("Camera");
+                {
+                    beginGroup("Rotation");
+                    {
+                        _UserSettings.set2PlayerCameraRotationKeyOfForPlayer(CameraRotation::Right,static_cast<Qt::Key>(value("Right",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                        _UserSettings.set2PlayerCameraRotationKeyOfForPlayer(CameraRotation::Left,static_cast<Qt::Key>(value("Left",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                        _UserSettings.set2PlayerCameraRotationKeyOfForPlayer(CameraRotation::Forward,static_cast<Qt::Key>(value("Forward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                        _UserSettings.set2PlayerCameraRotationKeyOfForPlayer(CameraRotation::Backward,static_cast<Qt::Key>(value("Backward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                    }
+                    endGroup();
+                    beginGroup("Sensibility");
+                    {
+                        _UserSettings.set2PlayerCameraRightAndLeftSensitivityForPlayer(value("Right-Left",5).toInt(),Player::P1);
+                        _UserSettings.set2PlayerCameraForAndBackWardSensitivityForPlayer((value("For-BackWard","Classic") == "Classic")?ForAndBackWardCameraSens::classic : ForAndBackWardCameraSens::Master, Player::P1);
+                    }
+                    endGroup();
+                    beginGroup("Piece");
+                    {
+                        beginGroup("Movement");
+                        {
+                            _UserSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Right,static_cast<Qt::Key>(value("Right",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                            _UserSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Left,static_cast<Qt::Key>(value("Left",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                            _UserSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Forward,static_cast<Qt::Key>(value("Forward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                            _UserSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Backward,static_cast<Qt::Key>(value("Backward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                            _UserSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Down,static_cast<Qt::Key>(value("Down",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                        }
+                        endGroup();
+                        beginGroup("Rotation");
+                        {
+                            _UserSettings.set2PlayerPieceRotationKeyOfForPlayer(PieceRotation2Player::Right,static_cast<Qt::Key>(value("Right",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                            _UserSettings.set2PlayerPieceRotationKeyOfForPlayer(PieceRotation2Player::Forward,static_cast<Qt::Key>(value("Forward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                            _UserSettings.set2PlayerPieceRotationKeyOfForPlayer(PieceRotation2Player::TippingRight,static_cast<Qt::Key>(value("TippingRight",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P1);
+                        }
+                        endGroup();
+                    }
+                    endGroup();
+                }
+                endGroup();
+
+            }
+            endGroup();
+            beginGroup("Player2");
+            {
+                _UserSettings.set2PlayerReserveKeyForPlayer(static_cast<Qt::Key>(value("Reserve",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                beginGroup("Camera");
+                {
+                    beginGroup("Rotation");
+                    {
+                        _UserSettings.set2PlayerCameraRotationKeyOfForPlayer(CameraRotation::Right,static_cast<Qt::Key>(value("Right",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                        _UserSettings.set2PlayerCameraRotationKeyOfForPlayer(CameraRotation::Left,static_cast<Qt::Key>(value("Left",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                        _UserSettings.set2PlayerCameraRotationKeyOfForPlayer(CameraRotation::Forward,static_cast<Qt::Key>(value("Forward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                        _UserSettings.set2PlayerCameraRotationKeyOfForPlayer(CameraRotation::Backward,static_cast<Qt::Key>(value("Backward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                    }
+                    endGroup();
+                    beginGroup("Sensibility");
+                    {
+                        _UserSettings.set2PlayerCameraRightAndLeftSensitivityForPlayer(value("Right-Left",5).toInt(),Player::P2);
+                        _UserSettings.set2PlayerCameraForAndBackWardSensitivityForPlayer((value("For-BackWard","Classic") == "Classic")?ForAndBackWardCameraSens::classic : ForAndBackWardCameraSens::Master, Player::P2);
+                    }
+                    endGroup();
+                    beginGroup("Piece");
+                    {
+                        beginGroup("Movement");
+                        {
+                            _UserSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Right,static_cast<Qt::Key>(value("Right",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                            _UserSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Left,static_cast<Qt::Key>(value("Left",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                            _UserSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Forward,static_cast<Qt::Key>(value("Forward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                            _UserSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Backward,static_cast<Qt::Key>(value("Backward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                            _UserSettings.set2PlayerPieceMovementKeyOfForPlayer(PieceMovement::Down,static_cast<Qt::Key>(value("Down",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                        }
+                        endGroup();
+                        beginGroup("Rotation");
+                        {
+                            _UserSettings.set2PlayerPieceRotationKeyOfForPlayer(PieceRotation2Player::Right,static_cast<Qt::Key>(value("Right",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                            _UserSettings.set2PlayerPieceRotationKeyOfForPlayer(PieceRotation2Player::Forward,static_cast<Qt::Key>(value("Forward",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                            _UserSettings.set2PlayerPieceRotationKeyOfForPlayer(PieceRotation2Player::TippingRight,static_cast<Qt::Key>(value("TippingRight",QVariant(QKeySequence(QKeySequence::NoMatch))).toString().toInt()),Player::P2);
+                        }
+                        endGroup();
+                    }
+                    endGroup();
+                }
+                endGroup();
+            }
+            endGroup();
+        }
+        endGroup();
+
+        beginGroup("Audio");{
+            _UserSettings.setAudioVolume(value("Music_Volume",100).toInt());
+        }
+        endGroup();
+    }
+    endGroup();
+
+}
+
+SettingsController::SettingsController(QObject * Parent): QSettings(QSettings::IniFormat,QSettings::Scope::UserScope,"H002 Factory", "Tetrabloc!?",Parent),_DefaultSettings(),_UserSettings(){
+
+    setFallbacksEnabled(false);
+
+    if(not contains("SettingsFileDefined")){
+        createSettingsFile();
+    }
+    if(not contains("SettingsFileDefined")){
+        throw SettingsFileError("Settings file not reachable.");
+    }
+
+    loadDefaultSettings();
+    loadUserSettings();
+
+}
+
+
+/*
+void SettingsController::ChangeUserGameKeyOf(GameAction ga, Qt::Key qk)
+{
+    _UserSettings.setGameKeyOf(ga,qk);
+}
+
+void SettingsController::ChangeUserCameraRorationKeyOf(CameraRotation cr, Qt::Key qk)
+{
+    _UserSettings.setCameraRotationKeyOf(cr,qk);
+}
+
+void SettingsController::ChangeUserPieceMovementKeyOf(PieceMovement pm, Qt::Key qk)
+{
+    _UserSettings.setPieceMovementKeyOf(pm,qk);
+}
+
+void SettingsController::ChangeUserPieceRotationKeyOf(PieceRotation pr, Qt::Key qk)
+{
+    _UserSettings.setPieceRotationKeyOf(pr,qk);
+}
+
+void SettingsController::ChangeUserCameraRightAndLeftSensitivity(int sensi)
+{
+    _UserSettings.setCameraRightAndLeftSensitivity(sensi);
+}
+
+void SettingsController::ChangeUserCameraForAndBackWardSensitivity(ForAndBackWardCameraSens fbs)
+{
+    _UserSettings.setCameraForAndBackWardSensitivity(fbs);
+}
+*/
+NonAlterableSettings SettingsController::getDefaultSettings()
+{
+    return _DefaultSettings;
+}
+
+NonAlterableSettings SettingsController::getUserSettings()
+{
+    return _UserSettings;
+}
+
+void SettingsController::ValidateUserKeyBindSettings(AlterableSettings &newUserKeyBind)
+{
+    _UserSettings.setGameKeyArray(newUserKeyBind.getGameKeyArray());
+    _UserSettings.setCameraRotationKeyArray(newUserKeyBind.getCameraRotationKeyArray());
+    _UserSettings.setPieceMovementKeyArray(newUserKeyBind.getPieceMovementKeyArray());
+    _UserSettings.setPieceRotationKeyArray(newUserKeyBind.getPieceRotationKeyArray());
+    _UserSettings.setCameraRightAndLeftSensitivity(newUserKeyBind.getCameraRightAndLeftSensitivity());
+    _UserSettings.setCameraForAndBackWardSensitivity(newUserKeyBind.getCameraForAndBackWardSensitivity());
+
+
+    modifSettingsFile();
+}
+void SettingsController::ValidateUserAudioSettings(AlterableSettings &newUserKeyBind)
+{
+    _UserSettings.setAudioVolume(newUserKeyBind.getAudioVolumeValue());
+    modifSettingsFile();
+}
+
+void SettingsController::ValidateUser2PlayerKeyBindSettings(AlterableSettings &newUserKeyBind)
+{
+    _UserSettings.set2PlayerPauseKey(newUserKeyBind.get2PlayerPauseGameKey());
+    _UserSettings.set2PlayerReserveKeyForPlayer(newUserKeyBind.get2PlayerReserveGameKeyForPlayer(Player::P1),Player::P1);
+    _UserSettings.set2PlayerReserveKeyForPlayer(newUserKeyBind.get2PlayerReserveGameKeyForPlayer(Player::P2),Player::P2);
+    _UserSettings.set2PlayerCameraRotationKeyArrayForPlayer(newUserKeyBind.get2PlayerCameraRotationKeyArrayForPlayer(Player::P1), Player::P1);
+    _UserSettings.set2PlayerCameraRotationKeyArrayForPlayer(newUserKeyBind.get2PlayerCameraRotationKeyArrayForPlayer(Player::P2), Player::P2);
+    _UserSettings.set2PlayerPieceMovementKeyArrayForPlayer(newUserKeyBind.get2PlayerPieceMovementKeyArrayForPlayer(Player::P1), Player::P1);
+    _UserSettings.set2PlayerPieceMovementKeyArrayForPlayer(newUserKeyBind.get2PlayerPieceMovementKeyArrayForPlayer(Player::P2), Player::P2);
+    _UserSettings.set2PlayerPieceRotationKeyArrayForPlayer(newUserKeyBind.get2PlayerPieceRotationKeyArrayForPlayer(Player::P1), Player::P1);
+    _UserSettings.set2PlayerPieceRotationKeyArrayForPlayer(newUserKeyBind.get2PlayerPieceRotationKeyArrayForPlayer(Player::P2), Player::P2);
+    _UserSettings.set2PlayerCameraRightAndLeftSensitivityForPlayer(newUserKeyBind.get2PlayerCameraRightAndLeftSensitivityForPlayer(Player::P1), Player::P1);
+    _UserSettings.set2PlayerCameraRightAndLeftSensitivityForPlayer(newUserKeyBind.get2PlayerCameraRightAndLeftSensitivityForPlayer(Player::P2), Player::P2);
+    _UserSettings.set2PlayerCameraForAndBackWardSensitivityForPlayer(newUserKeyBind.get2PlayerCameraForAndBackWardSensitivityForPlayer(Player::P1),Player::P1);
+    _UserSettings.set2PlayerCameraForAndBackWardSensitivityForPlayer(newUserKeyBind.get2PlayerCameraForAndBackWardSensitivityForPlayer(Player::P2),Player::P2);
+
+    modifSettingsFile();
+}
+

@@ -1,0 +1,27 @@
+
+<RCC>
+    <qresource prefix="/">
+        <file>ressources/music.mp3</file>
+        <file>ressources/music2.mp3</file>
+        <file>ressources/bump_sfx.wav</file>
+        <file>ressources/init_sfx.wav</file>
+        <file>ressources/Triangle.ppm</file>
+        <file>ressources/0.png</file>
+        <file>ressources/1.png</file>
+        <file>ressources/2.png</file>
+        <file>ressources/3.png</file>
+        <file>ressources/4.png</file>
+        <file>ressources/5.png</file>
+        <file>ressources/6.png</file>
+        <file>ressources/7.png</file>
+        <file>ressources/8.png</file>
+        <file>ressources/9.png</file>
+        <file>ressources/pause.png</file>
+        <file>ressources/reserve.png</file>
+        <file>ressources/suivant.png</file>
+        <file>ressources/score.png</file>
+        <file>ressources/niveau.png</file>
+        <file>ressources/logo.png</file>
+    </qresource>
+</RCC>
+
